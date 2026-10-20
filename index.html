@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cortisol — Complete Mastery Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #FAF7F2;
+    --ink:       #1A1410;
+    --cortisol:  #C85A1A;     /* adrenal orange */
+    --hpa:       #2A5C8A;     /* hypothalamic blue */
+    --immune:    #3A7D44;     /* immune green */
+    --stress:    #8B3A8B;     /* stress purple */
+    --danger:    #B5320A;
+    --gold:      #D4A827;
+    --muted:     #8A7F75;
+    --card-bg:   #FFFFFF;
+    --border:    #E8E0D6;
+    --highlight: #FFF4EC;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-logo {
+    padding: 0 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--cortisol);
+    white-space: nowrap;
+    border-right: 1px solid #333;
+  }
+  nav a {
+    padding: 12px 16px;
+    color: #CCC;
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--cortisol); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    padding: 72px 40px 60px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,90,26,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cortisol);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    color: #FFF;
+    line-height: 1.05;
+  }
+  .hero h1 span { color: var(--cortisol); }
+  .hero-sub {
+    margin-top: 18px;
+    color: #AAA;
+    font-size: 0.95rem;
+    max-width: 520px;
+  }
+  .hero-formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--cortisol);
+    background: rgba(200,90,26,0.12);
+    border: 1px solid rgba(200,90,26,0.25);
+    border-radius: 8px;
+    padding: 20px 24px;
+    white-space: nowrap;
+    line-height: 2;
+  }
+  .hero-formula .label { color: #666; font-size: 0.65rem; display: block; margin-bottom: 6px; }
+
+  /* ── PILL TAGS ── */
+  .pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .pill-orange { background: rgba(200,90,26,0.12); color: var(--cortisol); }
+  .pill-blue   { background: rgba(42,92,138,0.12); color: var(--hpa); }
+  .pill-green  { background: rgba(58,125,68,0.12); color: var(--immune); }
+  .pill-purple { background: rgba(139,58,139,0.12); color: var(--stress); }
+  .pill-gold   { background: rgba(212,168,39,0.12); color: #AA8800; }
+  .pill-red    { background: rgba(181,50,10,0.12); color: var(--danger); }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+
+  section { padding: 64px 0 0; }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .section-desc { color: var(--muted); max-width: 600px; margin-bottom: 32px; font-size: 0.9rem; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .card-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .icon-orange { background: rgba(200,90,26,0.10); }
+  .icon-blue   { background: rgba(42,92,138,0.10); }
+  .icon-green  { background: rgba(58,125,68,0.10); }
+  .icon-purple { background: rgba(139,58,139,0.10); }
+  .icon-red    { background: rgba(181,50,10,0.10); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+  /* ── BULLET LIST ── */
+  ul.bio { list-style: none; padding: 0; }
+  ul.bio li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  ul.bio li:last-child { border-bottom: none; }
+  ul.bio li::before {
+    content: '→';
+    color: var(--cortisol);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  ul.bio li strong { color: var(--ink); }
+
+  /* ── HPA AXIS DIAGRAM ── */
+  .hpa-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 32px 0;
+  }
+  .hpa-box {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .hpa-box.hypo  { background: rgba(139,58,139,0.08); border: 2px solid var(--stress); }
+  .hpa-box.pit   { background: rgba(42,92,138,0.08); border: 2px solid var(--hpa); }
+  .hpa-box.adren { background: rgba(200,90,26,0.08); border: 2px solid var(--cortisol); }
+  .hpa-box.pomc  { background: rgba(212,168,39,0.08); border: 2px solid var(--gold); }
+  .hpa-box-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--muted);
+  }
+  .hpa-box-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .hpa-box.hypo  .hpa-box-name { color: var(--stress); }
+  .hpa-box.pit   .hpa-box-name { color: var(--hpa); }
+  .hpa-box.adren .hpa-box-name { color: var(--cortisol); }
+  .hpa-box.pomc  .hpa-box-name { color: #AA8800; }
+  .hpa-box p { font-size: 0.8rem; color: var(--muted); }
+
+  .arrow-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 0;
+  }
+  .arrow-line {
+    width: 2px;
+    height: 24px;
+    background: linear-gradient(to bottom, var(--cortisol), transparent);
+  }
+  .arrow-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cortisol);
+    background: var(--highlight);
+    border: 1px solid rgba(200,90,26,0.2);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .arrow-tip { font-size: 1rem; color: var(--cortisol); line-height: 1; }
+
+  .feedback-box {
+    border: 2px dashed var(--danger);
+    border-radius: 10px;
+    padding: 14px 18px;
+    background: rgba(181,50,10,0.04);
+    max-width: 400px;
+    width: 100%;
+    font-size: 0.82rem;
+    color: var(--danger);
+    text-align: center;
+  }
+  .feedback-box strong { display: block; margin-bottom: 4px; }
+  .feedback-curved {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── EFFECTS TABLE ── */
+  .effect-table { width: 100%; border-collapse: collapse; }
+  .effect-table th {
+    text-align: left;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--border);
+    background: var(--cream);
+  }
+  .effect-table td {
+    padding: 11px 14px;
+    font-size: 0.86rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .effect-table tr:last-child td { border-bottom: none; }
+  .effect-table tr:hover td { background: var(--highlight); }
+  .up { color: #2A7A2A; font-weight: 700; }
+  .dn { color: var(--danger); font-weight: 700; }
+
+  /* ── MNEMONIC ── */
+  .mnemonic {
+    background: var(--ink);
+    color: #FFF;
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+  .mnemonic-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--cortisol);
+    margin-bottom: 16px;
+  }
+  .mnemonic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .mnemonic-item {
+    border-left: 3px solid var(--cortisol);
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+  .mnemonic-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--cortisol);
+    line-height: 1;
+  }
+  .mnemonic-word { font-weight: 600; font-size: 0.88rem; color: #EEE; }
+  .mnemonic-def { font-size: 0.75rem; color: #999; margin-top: 3px; }
+
+  /* ── CLINICAL BOX ── */
+  .clinical {
+    border-left: 4px solid var(--danger);
+    background: rgba(181,50,10,0.04);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+  }
+  .clinical-title {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--danger);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .clinical ul { list-style: disc; padding-left: 18px; }
+  .clinical li { font-size: 0.85rem; padding: 3px 0; }
+
+  /* ── PERMISSIVE EFFECTS ── */
+  .permissive-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.86rem;
+  }
+  .permissive-row:last-child { border-bottom: none; }
+  .perm-hormone {
+    font-weight: 700;
+    color: var(--cortisol);
+    font-size: 0.9rem;
+  }
+  .perm-arrow {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .perm-effect { color: var(--ink); }
+
+  /* ── MINERALOCORTICOID ── */
+  .mineral-diagram {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .mineral-header {
+    background: linear-gradient(135deg, var(--hpa), #1A3A5C);
+    color: #FFF;
+    padding: 16px 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+  }
+  .mineral-header small { display: block; font-family: 'Inter', sans-serif; font-size: 0.75rem; color: rgba(255,255,255,0.6); font-style: italic; margin-top: 2px; }
+  .mineral-body { padding: 20px 22px; }
+  .mineral-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.86rem;
+  }
+  .mineral-row:last-child { border-bottom: none; }
+  .mineral-ion { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.95rem; }
+  .mineral-action { color: var(--muted); font-size: 0.82rem; }
+  .mineral-dir { font-weight: 700; font-size: 1.1rem; }
+
+  /* ── STRESS CHRONIC ── */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    border-left: 2px solid var(--border);
+  }
+  .t-item {
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .t-item::before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 5px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--stress);
+    border: 2px solid var(--cream);
+  }
+  .t-item:first-child::before { background: var(--cortisol); }
+  .t-item:last-child::before  { background: var(--danger); }
+  .t-phase {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3px;
+  }
+  .t-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 5px; }
+  .t-body  { font-size: 0.84rem; color: #555; }
+
+  /* ── QUICK REF ── */
+  .qref {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .qref-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .qref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .qref-group-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #333;
+  }
+  .qref-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 5px 0;
+    font-size: 0.82rem;
+    border-bottom: 1px solid #222;
+  }
+  .qref-item:last-child { border-bottom: none; }
+  .qref-k { color: #AAA; }
+  .qref-v { color: #EEE; font-weight: 600; text-align: right; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; padding: 48px 24px 40px; }
+    .hero-formula { display: none; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .qref-grid { grid-template-columns: 1fr; }
+    .permissive-row { grid-template-columns: 1fr; gap: 4px; }
+    .perm-arrow { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  /* ── DIVIDER ── */
+  hr.section-hr {
+    border: none;
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ── TOPIC TAG ROW ── */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+
+  /* highlight row */
+  .highlight-row {
+    background: var(--highlight);
+    border: 1px solid rgba(200,90,26,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .highlight-row .emoji { flex-shrink: 0; font-size: 1rem; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Cortisol</div>
+  <a href="#basics">Basics</a>
+  <a href="#hpa">HPA Axis</a>
+  <a href="#effects">All Effects</a>
+  <a href="#permissive">Permissive</a>
+  <a href="#mineralocorticoid">Mineral.</a>
+  <a href="#immune">Immunity</a>
+  <a href="#stress">Chronic Stress</a>
+  <a href="#clinical">Clinical</a>
+  <a href="#mnemonic">Mnemonics</a>
+  <a href="#quickref">Quick Ref</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">Complete Mastery Guide</div>
+    <h1><span>Cortisol</span><br>The Master Stress Hormone</h1>
+    <p class="hero-sub">A glucocorticoid secreted from the adrenal cortex zona fasciculata. Regulates metabolism, immunity, blood pressure, and the body's entire stress response.</p>
+  </div>
+  <div class="hero-formula">
+    <span class="label">Cascade</span>
+    Stress / Circadian ↓<br>
+    Hypothalamus → CRH ↓<br>
+    Anterior Pituitary → ACTH ↓<br>
+    Adrenal Cortex (ZF) → Cortisol ↓<br>
+    Systemic Effects<br>
+    <br>
+    <span class="label">Negative Feedback</span>
+    Cortisol ⊣ CRH + ACTH
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ══════════════════════════════════════
+  BASICS
+══════════════════════════════════════ -->
+<section id="basics">
+  <div class="section-label">Section 01</div>
+  <h2 class="section-title">Biochemical Basics</h2>
+  <p class="section-desc">Where cortisol comes from, how it travels, and what triggers its release.</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title"><div class="icon icon-orange">🧪</div> Classification</div>
+      <ul class="bio">
+        <li><strong>Type:</strong> Glucocorticoid steroid hormone</li>
+        <li><strong>Origin:</strong> Cholesterol (steroidogenesis)</li>
+        <li><strong>Source:</strong> Adrenal cortex — Zona Fasciculata</li>
+        <li><strong>Solubility:</strong> Lipid-soluble (crosses cell membranes)</li>
+        <li><strong>Receptor:</strong> Intracellular glucocorticoid receptor (GR-α)</li>
+        <li><strong>Action:</strong> Directly alters gene transcription</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><div class="icon icon-blue">🩸</div> Transport in Blood</div>
+      <ul class="bio">
+        <li><strong>~75–80%</strong> bound to Corticosteroid-Binding Globulin (CBG/transcortin)</li>
+        <li><strong>~15%</strong> weakly bound to albumin</li>
+        <li><strong>~5–10%</strong> free (biologically active)</li>
+        <li>CBG ↑ in pregnancy, estrogen → more total cortisol (not free)</li>
+        <li>Liver synthesizes CBG; liver disease → ↓ CBG → more free cortisol</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><div class="icon icon-purple">⏰</div> Secretion Pattern</div>
+      <ul class="bio">
+        <li><strong>Circadian:</strong> Peaks 6–8 AM (cortisol awakening response), nadir midnight</li>
+        <li><strong>Pulsatile:</strong> 15–20 pulses/day tied to ACTH pulses</li>
+        <li>Light entrains the circadian clock in the SCN</li>
+        <li>Shift work, jet lag → disrupted rhythm</li>
+        <li>Stress overrides circadian pattern</li>
+        <li>Half-life: ~90 min; metabolised in liver</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px;">
+    <div class="highlight-row">
+      <span class="emoji">⚡</span>
+      <span><strong>The fundamental concept:</strong> Cortisol is a <em>catabolic, anti-anabolic, anti-inflammatory</em> hormone. In acute stress it is life-saving. Chronically elevated, it is profoundly destructive. Everything below flows from this principle.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  HPA AXIS
+══════════════════════════════════════ -->
+<section id="hpa">
+  <div class="section-label">Section 02</div>
+  <h2 class="section-title">The HPA Axis</h2>
+  <p class="section-desc">Hypothalamic–Pituitary–Adrenal axis: a tightly regulated three-gland cascade with negative feedback at every level.</p>
+
+  <div class="grid-2" style="align-items: start;">
+    <div class="card" style="padding: 28px 20px;">
+      <div class="hpa-flow">
+        <!-- Triggers -->
+        <div class="hpa-box hypo" style="background: rgba(80,40,80,0.06); border-color: var(--muted); max-width: 380px;">
+          <div class="hpa-box-label">Triggers</div>
+          <div class="hpa-box-name" style="color: var(--muted); font-size: 0.9rem;">Physical stress · Psychological stress<br>Hypoglycemia · Pain · Inflammation<br>Circadian rhythm (SCN) · Cytokines (IL-1, IL-6, TNF-α)</div>
+        </div>
+        <div class="arrow-block">
+          <div class="arrow-line" style="height: 16px;"></div>
+          <div class="arrow-tip">↓</div>
+        </div>
+
+        <!-- Hypothalamus -->
+        <div class="hpa-box hypo">
+          <div class="hpa-box-label">Hypothalamus · Paraventricular Nucleus</div>
+          <div class="hpa-box-name">CRH</div>
+          <p>Corticotropin-Releasing Hormone<br><em>Also releases: AVP (vasopressin, synergistic)</em></p>
+        </div>
+        <div class="arrow-block">
+          <div class="arrow-line"></div>
+          <div class="arrow-label">Hypophyseal portal system</div>
+          <div class="arrow-line"></div>
+          <div class="arrow-tip">↓</div>
+        </div>
+
+        <!-- Pituitary -->
+        <div class="hpa-box pit">
+          <div class="hpa-box-label">Anterior Pituitary · Corticotrophs</div>
+          <div class="hpa-box-name">ACTH</div>
+          <p>Adrenocorticotropic Hormone<br><em>Cleaved from POMC precursor (see right)</em></p>
+        </div>
+        <div class="arrow-block">
+          <div class="arrow-line"></div>
+          <div class="arrow-label">Systemic blood</div>
+          <div class="arrow-line"></div>
+          <div class="arrow-tip">↓</div>
+        </div>
+
+        <!-- Adrenal -->
+        <div class="hpa-box adren">
+          <div class="hpa-box-label">Adrenal Cortex · Zona Fasciculata</div>
+          <div class="hpa-box-name">CORTISOL</div>
+          <p>ACTH binds MC2R receptor → activates StAR protein → cholesterol → cortisol via CYP11B1</p>
+        </div>
+
+        <!-- Feedback -->
+        <div class="arrow-block" style="padding: 12px 0 4px;">
+          <div class="feedback-curved">
+            <div class="feedback-box">
+              <strong>⊣ Negative Feedback</strong>
+              Cortisol inhibits CRH (hypothalamus) and ACTH (pituitary) — both long-loop feedback. Short-loop: ACTH inhibits CRH.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <!-- POMC -->
+      <div class="card">
+        <div class="card-title"><div class="icon icon-orange">🧬</div> POMC — Pro-opiomelanocortin</div>
+        <p style="font-size: 0.82rem; color: var(--muted); margin-bottom: 10px;">ACTH is only one of many peptides cleaved from POMC. Understanding this explains why Addison's disease (↑ACTH) causes hyperpigmentation.</p>
+        <ul class="bio">
+          <li><strong>ACTH</strong> → stimulates cortisol + aldosterone (partially) + adrenal androgens</li>
+          <li><strong>α-MSH</strong> (from ACTH) → melanocyte stimulation → skin darkening</li>
+          <li><strong>β-Endorphin</strong> → opioid-like analgesia during stress</li>
+          <li><strong>γ-MSH</strong> → blood pressure regulation, aldosterone</li>
+          <li>In Addison's: no cortisol → ↑↑ ACTH → ↑ MSH → hyperpigmentation</li>
+        </ul>
+      </div>
+
+      <!-- Feedback detail -->
+      <div class="card">
+        <div class="card-title"><div class="icon icon-red">🔄</div> Negative Feedback in Detail</div>
+        <ul class="bio">
+          <li><strong>Fast feedback (seconds–minutes):</strong> Cortisol inhibits CRH release via membrane receptors (non-genomic)</li>
+          <li><strong>Delayed feedback (hours):</strong> Cortisol enters pituitary nuclei → ↓ POMC transcription → ↓ ACTH synthesis</li>
+          <li><strong>Intermediate:</strong> Cortisol ↓ ACTH secretion from stored granules</li>
+          <li>Feedback sites: hypothalamus, pituitary, hippocampus (contextual), prefrontal cortex</li>
+          <li><strong>Dexamethasone</strong> (synthetic GC) exploits this for the dexamethasone suppression test</li>
+        </ul>
+      </div>
+
+      <!-- Dex test -->
+      <div class="card">
+        <div class="card-title"><div class="icon icon-blue">🧪</div> Dexamethasone Suppression Test</div>
+        <ul class="bio">
+          <li>Low-dose (1 mg overnight): screens for Cushing's — normal → cortisol suppressed; Cushing's → not suppressed</li>
+          <li>High-dose (8 mg): distinguishes pituitary Cushing's (suppressed) from ectopic ACTH/adrenal (not suppressed)</li>
+          <li>Dex does not cross-react with cortisol immunoassay → pure feedback test</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  ALL EFFECTS
+══════════════════════════════════════ -->
+<section id="effects">
+  <div class="section-label">Section 03</div>
+  <h2 class="section-title">Systemic Effects of Cortisol</h2>
+  <p class="section-desc">Cortisol touches nearly every organ system. Here is a complete organ-by-organ breakdown.</p>
+
+  <div class="grid-2" style="align-items: start;">
+    <!-- Metabolic -->
+    <div class="card">
+      <div class="card-title"><div class="icon icon-orange">⚗️</div> Metabolic Effects <span class="pill pill-orange">Catabolic</span></div>
+      <ul class="bio">
+        <li><strong>Gluconeogenesis ↑:</strong> Stimulates hepatic gluconeogenesis via induction of PEPCK, glucose-6-phosphatase; raises blood glucose even in fasted state</li>
+        <li><strong>Glycogen synthesis ↑:</strong> In liver only (paradox: also raises glucose by counteracting insulin)</li>
+        <li><strong>Proteolysis ↑:</strong> Muscle protein breakdown → amino acids released as gluconeogenic substrates</li>
+        <li><strong>Lipolysis ↑:</strong> Stimulates HSL in adipose; mobilises FFAs. But excess causes central/visceral fat deposition (paradox — insulin resistance + hyperphagia)</li>
+        <li><strong>Insulin resistance:</strong> Downregulates GLUT4 in muscle, reduces insulin receptor signalling → diabetogenic</li>
+        <li><strong>Appetite ↑:</strong> Stimulates hypothalamic NPY and orexigenic pathways; chronic elevation → hyperphagia</li>
+        <li><strong>Glucose utilization ↓</strong> in peripheral tissues</li>
+      </ul>
+    </div>
+
+    <!-- Cardiovascular -->
+    <div class="card">
+      <div class="card-title"><div class="icon icon-red">❤️</div> Cardiovascular Effects <span class="pill pill-red">Pressor</span></div>
+      <ul class="bio">
+        <li><strong>α1-receptor upregulation:</strong> Cortisol increases α1-adrenoceptor density on arterioles → greater vasoconstriction to same norepinephrine level</li>
+        <li><strong>Permissive action on catecholamines:</strong> Without cortisol, epinephrine and norepinephrine lose much of their vasopressor effect (see Permissive section)</li>
+        <li><strong>Mineralocorticoid spillover:</strong> At very high concentrations, cortisol overwhelms 11β-HSD2 and binds aldosterone (mineralocorticoid) receptors → Na⁺ retention → ↑ BP</li>
+        <li><strong>Maintains cardiac output:</strong> Required for normal myocardial contractility and vascular tone</li>
+        <li>Addison's crisis: profound hypotension due to loss of all these effects</li>
+      </ul>
+    </div>
+
+    <!-- Bone -->
+    <div class="card">
+      <div class="card-title"><div class="icon icon-orange">🦴</div> Bone & Musculoskeletal</div>
+      <ul class="bio">
+        <li><strong>Osteoblast activity ↓:</strong> Directly inhibits osteoblast proliferation and collagen I synthesis → ↓ bone formation</li>
+        <li><strong>Osteoclast activity ↑ (indirectly):</strong> ↓ OPG → ↑ RANKL signalling → ↑ bone resorption</li>
+        <li><strong>Ca²⁺ absorption ↓:</strong> Inhibits intestinal calcium absorption (via vitamin D antagonism) → ↑ PTH → bone resorption</li>
+        <li><strong>Renal Ca²⁺ excretion ↑</strong></li>
+        <li>Net: Osteoporosis with chronic excess (hallmark of Cushing's)</li>
+        <li><strong>Muscle:</strong> Proteolysis → proximal myopathy (Cushing's sign: cannot rise from chair)</li>
+        <li><strong>Growth plate:</strong> Suppresses IGF-1 and GH action → impaired growth in children</li>
+      </ul>
+    </div>
+
+    <!-- Skin & Connective Tissue -->
+    <div class="card">
+      <div class="card-title"><div class="icon icon-orange">🩹</div> Skin & Connective Tissue</div>
+      <ul class="bio">
+        <li><strong>Fibroblast activity ↓:</strong> Inhibits fibroblast proliferation → poor wound healing</li>
+        <li><strong>Collagen synthesis ↓:</strong> Leads to skin thinning, easy bruising</li>
+        <li><strong>Striae:</strong> Rapid fat deposition + weakened dermis → purple striae (esp. abdomen, flanks, axillae)</li>
+        <li>Impaired re-epithelialization</li>
+        <li>Decreased keratinocyte proliferation</li>
+        <li>With Cushing's: buffalo hump (dorsocervical fat), moon facies, central obesity</li>
+      </ul>
+    </div>
+
+    <!-- CNS -->
+    <div class="card">
+      <div class="card-title"><div class="icon icon-purple">🧠</div> CNS & Mood Effects</div>
+      <ul class="bio">
+        <li><strong>Hippocampus:</strong> Cortisol receptors dense here; acute → improves memory consolidation; chronic → dendritic atrophy, impairs explicit memory</li>
+        <li><strong>Amygdala:</strong> Potentiates fear responses, anxiety; chronic → amygdala hypertrophy</li>
+        <li><strong>Prefrontal cortex:</strong> Chronic stress impairs PFC-mediated executive function</li>
+        <li><strong>Mood:</strong> Acute → euphoria, heightened alertness; chronic → depression, anxiety, cognitive impairment</li>
+        <li><strong>Sleep:</strong> ↑ evening cortisol → insomnia; suppresses REM sleep</li>
+        <li>Psychosis possible with high-dose exogenous glucocorticoids</li>
+        <li><strong>Appetite centers:</strong> ↑ NPY, ↑ AgRP in hypothalamus → hyperphagia</li>
+      </ul>
+    </div>
+
+    <!-- GI -->
+    <div class="card">
+      <div class="card-title"><div class="icon icon-orange">🫃</div> Gastrointestinal</div>
+      <ul class="bio">
+        <li>↑ Gastric acid secretion → PUD risk (especially combined with NSAIDs)</li>
+        <li>↓ Mucus production → impaired gastric mucosal barrier</li>
+        <li>Inhibits prostaglandin synthesis (which normally protects gut mucosa)</li>
+        <li>Can unmask or worsen peptic ulcer disease</li>
+        <li>GI: redistribution of blood flow during stress reduces splanchnic perfusion</li>
+      </ul>
+    </div>
+
+    <!-- Renal -->
+    <div class="card">
+      <div class="card-title"><div class="icon icon-blue">💧</div> Renal / Fluid</div>
+      <ul class="bio">
+        <li><strong>At physiologic levels:</strong> maintains GFR; promotes free water clearance (cortisol required for normal free water excretion — why Addison's patients hyponatremic)</li>
+        <li><strong>Inhibits ADH effect:</strong> Cortisol facilitates renal excretion of free water (opposes ADH)</li>
+        <li><strong>At high concentrations:</strong> mineralocorticoid receptor binding → Na⁺ retention, K⁺ loss, H₂O retention (see mineralocorticoid section)</li>
+        <li>11β-HSD2 normally inactivates cortisol → aldosterone receptor; overwhelmed in Cushing's</li>
+      </ul>
+    </div>
+
+    <!-- Reproductive -->
+    <div class="card">
+      <div class="card-title"><div class="icon icon-purple">🧬</div> Reproductive Axis</div>
+      <ul class="bio">
+        <li><strong>↓ GnRH</strong> release from hypothalamus → ↓ LH/FSH → ↓ estrogen/testosterone</li>
+        <li>Explains stress-induced amenorrhea, low libido, anovulation</li>
+        <li>↓ Ovarian sensitivity to gonadotropins</li>
+        <li>Chronic stress → hypothalamic hypogonadism</li>
+        <li>Endometrial effects: impairs implantation</li>
+        <li>Thyroid: cortisol inhibits TSH secretion and peripheral T4→T3 conversion (sick euthyroid pattern)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  PERMISSIVE EFFECTS
+══════════════════════════════════════ -->
+<section id="permissive">
+  <div class="section-label">Section 04</div>
+  <h2 class="section-title">Permissive Effects of Cortisol</h2>
+  <p class="section-desc">Cortisol does not directly produce many effects — instead it "permits" other hormones to act maximally. Without baseline cortisol, those hormones lose much of their potency.</p>
+
+  <div class="grid-2" style="align-items: start;">
+    <div class="card">
+      <div class="card-title"><div class="icon icon-orange">🔑</div> What "Permissive" Means</div>
+      <p style="font-size: 0.86rem; color: var(--muted); margin-bottom: 14px;">A permissive effect is when hormone A (cortisol) does not directly cause an effect, but its presence is <em>required</em> for hormone B to produce its full response. Cortisol upregulates receptors, second messengers, and enzymatic machinery that other hormones rely on.</p>
+      <div class="highlight-row">
+        <span class="emoji">⚡</span>
+        <span>Classic teaching point: In adrenal insufficiency, epinephrine injection <em>fails</em> to raise BP adequately until cortisol is replaced. This is why hydrocortisone is given in adrenal crisis.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="icon icon-red">📋</div> Permissive Pairs</div>
+      <div class="permissive-row">
+        <div>
+          <div class="perm-hormone">Epinephrine / Norepinephrine</div>
+          <div style="font-size: 0.78rem; color: var(--muted);">Catecholamines</div>
+        </div>
+        <div class="perm-arrow">cortisol<br>enables ↓</div>
+        <div class="perm-effect">
+          Full vasopressor response; bronchodilation. Cortisol upregulates β₂-receptors on bronchi, α₁-receptors on arterioles, and maintains cAMP signalling machinery.
+        </div>
+      </div>
+      <div class="permissive-row">
+        <div>
+          <div class="perm-hormone">Glucagon</div>
+          <div style="font-size: 0.78rem; color: var(--muted);">Pancreatic α-cell</div>
+        </div>
+        <div class="perm-arrow">cortisol<br>enables ↓</div>
+        <div class="perm-effect">
+          Full hepatic gluconeogenesis response. Cortisol induces PEPCK & glucose-6-phosphatase — the enzymes glucagon activates via cAMP. Without cortisol, glucagon cannot generate adequate glucose.
+        </div>
+      </div>
+      <div class="permissive-row">
+        <div>
+          <div class="perm-hormone">Glucagon + Cortisol</div>
+          <div style="font-size: 0.78rem; color: var(--muted);">Hepatic Gluconeogenesis</div>
+        </div>
+        <div class="perm-arrow">synergy<br>↓</div>
+        <div class="perm-effect">
+          Cortisol supplies gluconeogenic substrates (amino acids via proteolysis, glycerol via lipolysis) AND induces the rate-limiting enzymes. Glucagon provides the cAMP-mediated signal. Together: maximal glucose production.
+        </div>
+      </div>
+      <div class="permissive-row">
+        <div>
+          <div class="perm-hormone">Thyroid Hormone</div>
+          <div style="font-size: 0.78rem; color: var(--muted);">T3/T4</div>
+        </div>
+        <div class="perm-arrow">cortisol<br>enables ↓</div>
+        <div class="perm-effect">
+          Cortisol is required for normal basal metabolic rate. Adrenal insufficiency + hypothyroidism together is particularly dangerous (myxedema coma risk).
+        </div>
+      </div>
+      <div class="permissive-row" style="border-bottom: none;">
+        <div>
+          <div class="perm-hormone">Aldosterone</div>
+          <div style="font-size: 0.78rem; color: var(--muted);">Mineralocorticoid</div>
+        </div>
+        <div class="perm-arrow">cortisol<br>enables ↓</div>
+        <div class="perm-effect">
+          Cortisol upregulates ENaC channel expression in kidney tubule, potentiating aldosterone's sodium reabsorption effect.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px;">
+    <div class="card">
+      <div class="card-title"><div class="icon icon-orange">🔬</div> Mechanism of Permissive Action</div>
+      <div class="grid-3">
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 8px;">Receptor Upregulation</div>
+          <ul class="bio">
+            <li>Cortisol induces <em>synthesis</em> of receptors for catecholamines (α₁, β₂)</li>
+            <li>More receptors = greater response to same hormone level</li>
+            <li>Takes hours (gene transcription)</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 8px;">Enzyme Induction</div>
+          <ul class="bio">
+            <li>Induces PEPCK, G6Pase → gluconeogenic machinery ready for glucagon</li>
+            <li>Induces PNMT in adrenal medulla → epinephrine synthesis (cortisol reaches medulla via portal blood)</li>
+            <li>Induces lipase co-factors for lipolysis</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 8px;">Signal Amplification</div>
+          <ul class="bio">
+            <li>Maintains intracellular cAMP levels by inhibiting phosphodiesterase</li>
+            <li>Preserves G-protein coupling efficiency</li>
+            <li>Prevents receptor desensitization (downregulation) of catecholamine receptors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  MINERALOCORTICOID
+══════════════════════════════════════ -->
+<section id="mineralocorticoid">
+  <div class="section-label">Section 05</div>
+  <h2 class="section-title">Mineralocorticoid-Like Effects</h2>
+  <p class="section-desc">Cortisol can mimic aldosterone at high concentrations. This is a critical concept in Cushing's syndrome and apparent mineralocorticoid excess.</p>
+
+  <div class="grid-2" style="align-items: start;">
+    <div>
+      <div class="mineral-diagram">
+        <div class="mineral-header">
+          Cortisol Binding Mineralocorticoid Receptors
+          <small>11β-HSD2 normally protects against this — but it can be overwhelmed</small>
+        </div>
+        <div class="mineral-body">
+          <div class="mineral-row">
+            <div>
+              <div class="mineral-ion">Na⁺</div>
+              <div class="mineral-action">Distal tubule / Collecting duct</div>
+            </div>
+            <div class="mineral-dir up">↑ Reabsorption</div>
+          </div>
+          <div class="mineral-row">
+            <div>
+              <div class="mineral-ion">H₂O</div>
+              <div class="mineral-action">Follows Na⁺ osmotically</div>
+            </div>
+            <div class="mineral-dir up">↑ Reabsorption</div>
+          </div>
+          <div class="mineral-row">
+            <div>
+              <div class="mineral-ion">K⁺</div>
+              <div class="mineral-action">Principal cells of collecting duct</div>
+            </div>
+            <div class="mineral-dir dn">↑ Secretion (↓ serum K⁺)</div>
+          </div>
+          <div class="mineral-row" style="border-bottom: none;">
+            <div>
+              <div class="mineral-ion">H⁺</div>
+              <div class="mineral-action">α-intercalated cells (H⁺-ATPase)</div>
+            </div>
+            <div class="mineral-dir dn">↑ Secretion (metabolic alkalosis)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 16px;">
+        <div class="card-title"><div class="icon icon-blue">🧬</div> 11β-HSD2: The Protector Enzyme</div>
+        <ul class="bio">
+          <li>11β-Hydroxysteroid dehydrogenase type 2 converts cortisol → cortisone (inactive) in kidney</li>
+          <li>Protects aldosterone receptors from cortisol (circulating cortisol is 1000× more abundant than aldosterone)</li>
+          <li>Overwhelmed in: Cushing's syndrome (very high cortisol), licorice ingestion (glycyrrhizin inhibits 11β-HSD2), ectopic ACTH syndrome</li>
+          <li>Genetic deficiency → Apparent Mineralocorticoid Excess (AME) syndrome: hypertension, hypokalemia, low aldosterone</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="card">
+        <div class="card-title"><div class="icon icon-blue">🔄</div> Renal Tubular Mechanism</div>
+        <ul class="bio">
+          <li><strong>Principal cells (DCT/CCD):</strong> Cortisol (acting as mineralocorticoid) → ↑ ENaC expression (apical) → Na⁺ entry from lumen → ↑ Na⁺/K⁺-ATPase (basolateral) → Na⁺ into blood, K⁺ into cell → K⁺ exits via ROMK into lumen → K⁺ secreted</li>
+          <li><strong>Net:</strong> Na⁺ retention → volume expansion → ↑ BP → ↓ renin/aldosterone (suppressed)</li>
+          <li><strong>α-Intercalated cells:</strong> same MR activation → ↑ H⁺-ATPase → H⁺ secretion → metabolic alkalosis + hypokalemia together = classic electrolyte pattern</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><div class="icon icon-red">⚠️</div> Electrolyte Summary in Cushing's</div>
+        <table class="effect-table">
+          <thead>
+            <tr>
+              <th>Electrolyte</th><th>Direction</th><th>Mechanism</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Sodium (Na⁺)</td><td class="up">↑ serum</td><td>ENaC reabsorption</td></tr>
+            <tr><td>Potassium (K⁺)</td><td class="dn">↓ serum</td><td>ROMK secretion</td></tr>
+            <tr><td>Chloride (Cl⁻)</td><td class="up">↑ serum</td><td>Follows Na⁺</td></tr>
+            <tr><td>Bicarbonate (HCO₃⁻)</td><td class="up">↑ serum</td><td>H⁺ secreted → alkalosis</td></tr>
+            <tr><td>Blood glucose</td><td class="up">↑</td><td>Gluconeogenesis + insulin resistance</td></tr>
+            <tr><td>Calcium (Ca²⁺)</td><td class="dn">↓ serum</td><td>↓ intestinal absorption, ↑ renal loss</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><div class="icon icon-orange">🩺</div> Clinical Scenarios</div>
+        <ul class="bio">
+          <li><strong>Licorice (glycyrrhizin):</strong> inhibits 11β-HSD2 → AME picture: HTN, hypokalemia, low aldosterone, low renin</li>
+          <li><strong>Ectopic ACTH (small cell lung cancer):</strong> extremely high cortisol → severe hypokalemia, metabolic alkalosis, HTN — often without cushingoid features (too rapid onset)</li>
+          <li><strong>Cushing's disease:</strong> mild-moderate mineralocorticoid effect; ACTH stimulates both cortisol AND aldosterone</li>
+          <li><strong>Primary adrenal Cushing's:</strong> aldosterone may be low (ACTH low, and adrenal adenoma mainly makes cortisol)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  IMMUNE EFFECTS
+══════════════════════════════════════ -->
+<section id="immune">
+  <div class="section-label">Section 06</div>
+  <h2 class="section-title">Immune & Inflammatory Effects</h2>
+  <p class="section-desc">Cortisol is the body's most powerful endogenous anti-inflammatory agent. It acts at multiple levels of the immune cascade.</p>
+
+  <div class="grid-2" style="align-items: start;">
+    <div class="card">
+      <div class="card-title"><div class="icon icon-green">🛡️</div> Anti-inflammatory Mechanisms</div>
+      <ul class="bio">
+        <li><strong>Lipocortin/Annexin A1 induction:</strong> Inhibits phospholipase A₂ → ↓ arachidonic acid release → ↓ prostaglandins AND ↓ leukotrienes (both pathways blocked)</li>
+        <li><strong>↓ NF-κB:</strong> Cortisol-GR complex directly inhibits NF-κB → ↓ transcription of IL-1β, IL-6, TNF-α, COX-2</li>
+        <li><strong>WBC adhesion molecule ↓:</strong> Inhibits ICAM-1, selectin expression → neutrophils cannot extravasate → <em>neutrophilia</em> (cells stuck in blood)</li>
+        <li><strong>Mast cells:</strong> Blocks histamine release and mast cell degranulation → less vasodilation, less bronchoconstriction</li>
+        <li><strong>↓ COX-2:</strong> Direct transcriptional suppression → ↓ PGE₂, PGI₂</li>
+        <li><strong>↓ Cytokine production:</strong> Blocks IL-1, IL-2, IL-6, IL-8, IFN-γ, TNF-α</li>
+        <li><strong>↓ Lymphocyte proliferation:</strong> via blocking IL-2 signalling</li>
+        <li><strong>↑ Apoptosis</strong> of lymphocytes and eosinophils</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="icon icon-green">🩸</div> Changes in White Cell Count (LEANE)</div>
+      <ul class="bio">
+        <li><strong class="up">Neutrophilia ↑:</strong> Cortisol → ↓ adhesion molecules → neutrophils released from marginating pool + ↑ marrow release; <em>demargination</em> is the key mechanism</li>
+        <li><strong class="dn">Eosinopenia ↓:</strong> Sequestration in spleen + bone marrow + ↑ apoptosis</li>
+        <li><strong class="dn">Basopenia ↓:</strong> Degranulation inhibited + bone marrow sequestration</li>
+        <li><strong class="dn">Lymphopenia ↓:</strong> Redistribution to lymphoid organs + ↑ apoptosis (especially T cells); blocks IL-2 → ↓ T-cell proliferation</li>
+        <li><strong class="dn">Monocytopenia ↓:</strong> Redistribution away from blood</li>
+        <li><strong>Mnemonic LEANE:</strong> Lymphocytes, Eosinophils, bAsophils, Neutrophils↑, Erythrocytes (↑ RBC by stimulating EPO marginally)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="icon icon-red">🦠</div> Immunosuppression Consequences</div>
+      <ul class="bio">
+        <li><strong>Reactivation of TB:</strong> Latent TB reactivates — cortisol blocks IL-2 (required for Th1 response and macrophage activation to kill Mycobacterium)</li>
+        <li><strong>Candidiasis:</strong> Opportunistic fungal infections; ↓ neutrophil killing + ↓ lymphocyte function</li>
+        <li><strong>Herpes zoster reactivation:</strong> Impaired T-cell surveillance</li>
+        <li><strong>CMV, PCP:</strong> Opportunistic infections especially at high doses</li>
+        <li><strong>Mask signs of infection:</strong> No fever, no WBC elevation, no peritoneal signs possible</li>
+        <li><strong>Live vaccines contraindicated</strong> in high-dose glucocorticoid therapy</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="icon icon-green">💊</div> Therapeutic Anti-inflammatory Use</div>
+      <ul class="bio">
+        <li>Asthma (acute severe): IV hydrocortisone → rapid bronchodilation (permissive for β₂) + anti-inflammatory</li>
+        <li>Anaphylaxis: second-line (epinephrine first) → prevents biphasic reaction</li>
+        <li>Septic shock (controversial): low-dose hydrocortisone in refractory vasoplegic shock</li>
+        <li>Rheumatoid arthritis, IBD, SLE: long-term suppression of autoimmune inflammation</li>
+        <li>Organ transplantation: prevents graft rejection (blocks T-cell IL-2)</li>
+        <li>Neonatal RDS: antenatal betamethasone → fetal lung maturation (induces surfactant)</li>
+        <li>Cerebral edema (tumor): dexamethasone ↓ vasogenic edema</li>
+        <li>Group croup: dexamethasone → ↓ subglottic edema</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  CHRONIC STRESS
+══════════════════════════════════════ -->
+<section id="stress">
+  <div class="section-label">Section 07</div>
+  <h2 class="section-title">Chronic Stress & HPA Dysregulation</h2>
+  <p class="section-desc">Cortisol is adaptive acutely. Prolonged exposure disrupts every regulatory system in the body.</p>
+
+  <div class="grid-2" style="align-items: start;">
+    <div class="card">
+      <div class="card-title"><div class="icon icon-purple">📈</div> Stages of Stress Response</div>
+      <div class="timeline" style="margin-top: 12px;">
+        <div class="t-item">
+          <div class="t-phase">Acute (seconds–hours)</div>
+          <div class="t-title">Fight-or-Flight Activation</div>
+          <div class="t-body">Catecholamines (instant) → cortisol (minutes to hours). Glucose mobilized, immune readied, vascular tone ↑. Adaptive and protective. Negative feedback intact.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-phase">Subacute (days–weeks)</div>
+          <div class="t-title">Sustained HPA Activation</div>
+          <div class="t-body">HPA axis hyperactive. Hippocampal GR receptors begin to downregulate → feedback impaired. Circadian rhythm flattens. Immune function begins to suffer. Sleep disrupted.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-phase">Chronic (months–years)</div>
+          <div class="t-title">HPA Dysregulation / Cortisol Resistance</div>
+          <div class="t-body">GR receptors downregulated systemically → tissues resistant to cortisol → paradox: high cortisol yet pro-inflammatory state. Depression, metabolic syndrome, immunocompromise. Hippocampal atrophy visible on MRI.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-phase">Burnout / Exhaustion</div>
+          <div class="t-title">Blunted Cortisol Response</div>
+          <div class="t-body">In some chronically stressed individuals (PTSD, burnout): low morning cortisol, blunted CAR (cortisol awakening response), flat diurnal pattern. HPA axis "burned out". Associated with fatigue, low resilience.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="card">
+        <div class="card-title"><div class="icon icon-purple">🧠</div> Central Mechanisms of HPA Dysregulation</div>
+        <ul class="bio">
+          <li><strong>Hippocampus:</strong> Rich in GR → normally drives negative feedback. Chronic cortisol → dendritic atrophy → loss of inhibitory tone → runaway HPA activity</li>
+          <li><strong>Amygdala:</strong> Chronic cortisol → CRF upregulation in amygdala → anxiety, hypervigilance, enhanced fear memory</li>
+          <li><strong>Prefrontal cortex:</strong> Dendritic atrophy → poor executive control over stress response</li>
+          <li><strong>Hypothalamus:</strong> CRH neurons may become persistently active independent of feedback</li>
+          <li><strong>Glucocorticoid resistance:</strong> GR number ↓, affinity ↓, co-activator loss → cells no longer respond normally to anti-inflammatory signal of cortisol → inflammation persists</li>
+          <li>PTSD: often associated with LOW cortisol and enhanced GR sensitivity (opposite pattern)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><div class="icon icon-red">⚠️</div> Consequences of Chronic Hypercortisolemia</div>
+        <div class="grid-2" style="gap: 10px;">
+          <ul class="bio">
+            <li>Type 2 diabetes / insulin resistance</li>
+            <li>Central obesity</li>
+            <li>Hypertension</li>
+            <li>Osteoporosis</li>
+            <li>Recurrent infections</li>
+          </ul>
+          <ul class="bio">
+            <li>Depression / anxiety</li>
+            <li>Cognitive decline</li>
+            <li>Impaired wound healing</li>
+            <li>Infertility</li>
+            <li>Cardiovascular disease</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><div class="icon icon-green">🧘</div> Interventions to Normalize HPA Axis</div>
+        <ul class="bio">
+          <li><strong>Exercise:</strong> Acute cortisol spike but long-term ↓ basal cortisol; improves hippocampal neurogenesis (BDNF)</li>
+          <li><strong>Sleep:</strong> Restorative sleep normalizes circadian cortisol pattern</li>
+          <li><strong>Mindfulness/CBT:</strong> Reduces amygdala reactivity; improves PFC regulation</li>
+          <li><strong>Social support:</strong> Oxytocin opposes cortisol; blunts HPA reactivity</li>
+          <li><strong>Nutrition:</strong> Omega-3, adequate protein, low glycemic → reduce inflammatory drive</li>
+          <li><strong>Adaptogens (evidence-limited):</strong> Ashwagandha (KSM-66) shown to ↓ salivary cortisol in RCTs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  CLINICAL
+══════════════════════════════════════ -->
+<section id="clinical">
+  <div class="section-label">Section 08</div>
+  <h2 class="section-title">Clinical Conditions</h2>
+  <p class="section-desc">Excess and deficiency states, their causes, features, and key distinguishing points.</p>
+
+  <div class="grid-2" style="align-items: start;">
+    <!-- CUSHING'S -->
+    <div>
+      <div class="card" style="border-top: 3px solid var(--cortisol);">
+        <div class="card-title" style="font-size: 1.1rem; font-family: 'Playfair Display', serif;">Cushing's Syndrome <span class="pill pill-orange">Excess Cortisol</span></div>
+        <div class="grid-2" style="margin-bottom: 14px;">
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Causes</div>
+            <ul class="bio">
+              <li>Iatrogenic (most common overall): exogenous steroids</li>
+              <li>Cushing's <em>disease</em>: pituitary adenoma → ↑↑ ACTH (most common endogenous)</li>
+              <li>Adrenal adenoma/carcinoma: ↑↑ cortisol, ↓↓ ACTH</li>
+              <li>Ectopic ACTH: SCLC, carcinoid → ↑↑↑ ACTH → ↑↑↑ cortisol</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Classic Features</div>
+            <ul class="bio">
+              <li>Central obesity, moon face, buffalo hump</li>
+              <li>Purple striae (>1 cm)</li>
+              <li>Easy bruising, skin thinning</li>
+              <li>Proximal myopathy</li>
+              <li>Hypertension, hyperglycemia</li>
+              <li>Hypokalemia (esp. ectopic ACTH)</li>
+              <li>Osteoporosis</li>
+              <li>Depression, psychosis</li>
+              <li>Menstrual irregularity, ↓ libido</li>
+            </ul>
+          </div>
+        </div>
+        <div class="clinical" style="margin-top: 6px;">
+          <div class="clinical-title">Diagnostic Approach</div>
+          <ul>
+            <li>24-hr urinary free cortisol (×2)</li>
+            <li>Late-night salivary cortisol (×2)</li>
+            <li>1-mg overnight dexamethasone suppression test</li>
+            <li>If confirmed: plasma ACTH to distinguish ACTH-dependent vs independent</li>
+            <li>High-dose DST / CRH stimulation / IPSS for pituitary vs ectopic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDISON'S -->
+    <div>
+      <div class="card" style="border-top: 3px solid var(--hpa);">
+        <div class="card-title" style="font-size: 1.1rem; font-family: 'Playfair Display', serif;">Addison's Disease <span class="pill pill-blue">Cortisol Deficiency</span></div>
+        <div class="grid-2" style="margin-bottom: 14px;">
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Causes</div>
+            <ul class="bio">
+              <li>Autoimmune (most common in developed world): anti-21-hydroxylase antibodies</li>
+              <li>TB (most common worldwide)</li>
+              <li>HIV, CMV adrenalitis</li>
+              <li>Bilateral adrenal metastases</li>
+              <li>Meningococcal sepsis (Waterhouse-Friderichsen)</li>
+              <li>Drugs: ketoconazole, etomidate, rifampicin (↑ metabolism)</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">Features</div>
+            <ul class="bio">
+              <li>Fatigue, weight loss, anorexia</li>
+              <li>Hypotension (postural)</li>
+              <li>Hyperpigmentation (↑ ACTH → ↑ MSH)</li>
+              <li>Hyponatremia (↓ free water excretion)</li>
+              <li>Hyperkalemia (↓ aldosterone)</li>
+              <li>Hypoglycemia (↓ gluconeogenesis)</li>
+              <li>Eosinophilia (no cortisol suppression)</li>
+              <li>GI: N/V, abdominal pain</li>
+            </ul>
+          </div>
+        </div>
+        <div class="clinical" style="border-color: var(--hpa); background: rgba(42,92,138,0.04); margin-top: 6px;">
+          <div class="clinical-title" style="color: var(--hpa);">Adrenal Crisis — Emergency</div>
+          <ul>
+            <li>Precipitant: infection, surgery, vomiting, trauma</li>
+            <li>Shock, confusion, vomiting, abdominal pain, fever</li>
+            <li>Treatment: IV hydrocortisone 100 mg stat, then 50 mg q6h; IV saline; glucose</li>
+            <li>Do NOT delay treatment for cortisol levels — treat clinically suspected crisis immediately</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side effects of exogenous -->
+  <div style="margin-top: 16px;">
+    <div class="card">
+      <div class="card-title"><div class="icon icon-red">💊</div> Exogenous Glucocorticoid Side Effects (dose & duration dependent)</div>
+      <div class="grid-3">
+        <ul class="bio">
+          <li>HPA axis suppression → adrenal atrophy (never stop abruptly!)</li>
+          <li>Cushing's features (moon face, striae, weight gain)</li>
+          <li>Hyperglycemia / steroid diabetes</li>
+          <li>Dyslipidemia</li>
+        </ul>
+        <ul class="bio">
+          <li>Osteoporosis (prevent with Ca²⁺, Vit D, bisphosphonates)</li>
+          <li>Proximal myopathy</li>
+          <li>Avascular necrosis of femoral head</li>
+          <li>Glaucoma, posterior subcapsular cataracts</li>
+        </ul>
+        <ul class="bio">
+          <li>Growth suppression (children)</li>
+          <li>Immunosuppression: TB, candida, herpes reactivation</li>
+          <li>Skin: thinning, easy bruising, impaired healing</li>
+          <li>Psychiatric: mood elevation, psychosis, insomnia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  MNEMONIC
+══════════════════════════════════════ -->
+<section id="mnemonic">
+  <div class="section-label">Section 09</div>
+  <h2 class="section-title">Mnemonics & Memory Hooks</h2>
+  <p class="section-desc">Concise anchors to retrieve the full picture under exam pressure.</p>
+
+  <div class="mnemonic" style="margin-bottom: 16px;">
+    <div class="mnemonic-title">Cortisol is A BIG FIB</div>
+    <div class="mnemonic-grid">
+      <div class="mnemonic-item">
+        <div class="mnemonic-letter">A</div>
+        <div class="mnemonic-word">Appetite ↑</div>
+        <div class="mnemonic-def">NPY, orexigenic signaling</div>
+      </div>
+      <div class="mnemonic-item">
+        <div class="mnemonic-letter">B</div>
+        <div class="mnemonic-word">Blood pressure ↑</div>
+        <div class="mnemonic-def">α₁ upregulation, catecholamine permissive</div>
+      </div>
+      <div class="mnemonic-item">
+        <div class="mnemonic-letter">I</div>
+        <div class="mnemonic-word">Insulin resistance</div>
+        <div class="mnemonic-def">Diabetogenic; ↓ GLUT4</div>
+      </div>
+      <div class="mnemonic-item">
+        <div class="mnemonic-letter">G</div>
+        <div class="mnemonic-word">Gluconeogenesis ↑</div>
+        <div class="mnemonic-def">+ Lipolysis + Proteolysis</div>
+      </div>
+      <div class="mnemonic-item">
+        <div class="mnemonic-letter">F</div>
+        <div class="mnemonic-word">Fibroblast ↓</div>
+        <div class="mnemonic-def">Poor wound healing, striae</div>
+      </div>
+      <div class="mnemonic-item">
+        <div class="mnemonic-letter">I</div>
+        <div class="mnemonic-word">Immunity ↓</div>
+        <div class="mnemonic-def">↓ IL-2, ↓ leukotrienes, ↓ histamine</div>
+      </div>
+      <div class="mnemonic-item">
+        <div class="mnemonic-letter">B</div>
+        <div class="mnemonic-word">Bone formation ↓</div>
+        <div class="mnemonic-def">↓ osteoblasts → osteoporosis</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="align-items: start;">
+    <div class="card">
+      <div class="card-title"><div class="icon icon-green">🩸</div> WBC Changes: "LBEN"</div>
+      <ul class="bio">
+        <li><strong>L</strong>ymphopenia — ↓</li>
+        <li><strong>B</strong>asopenia (+ eosinopenia) — ↓</li>
+        <li><strong>E</strong>osinopenia — ↓</li>
+        <li><strong>N</strong>eutrophilia — ↑ (demargination)</li>
+      </ul>
+      <div class="highlight-row" style="margin-top: 10px;">
+        <span class="emoji">💡</span>
+        <span>Only neutrophils go UP. Everything else goes DOWN. Cortisol is anti-inflammatory — it pulls defensive cells away from the battlefield.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="icon icon-blue">💧</div> Mineralocorticoid: "SHARK"</div>
+      <ul class="bio">
+        <li><strong>S</strong>odium retained</li>
+        <li><strong>H</strong>ydrogen secreted</li>
+        <li><strong>A</strong>lkalosis (metabolic) — result of H⁺ loss</li>
+        <li><strong>R</strong>etains water (follows Na⁺)</li>
+        <li><strong>K⁺ secreted</strong> — hypokalemia</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="icon icon-purple">🔗</div> HPA Axis: "CRACKER"</div>
+      <ul class="bio">
+        <li><strong>C</strong>RH (hypothalamus)</li>
+        <li><strong>R</strong>eleases ACTH</li>
+        <li><strong>A</strong>CKs (acts on) adrenal cortex</li>
+        <li><strong>C</strong>ortisol produced (zona fasciculata)</li>
+        <li><strong>K</strong>ills (feeds back on) CRH and ACTH</li>
+        <li><strong>E</strong>levated cortisol = suppression</li>
+        <li><strong>R</strong>eset by stress, circadian rhythm</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><div class="icon icon-red">⚡</div> Permissive Effect Memory Hook</div>
+      <div class="highlight-row" style="margin-bottom: 10px;">
+        <span class="emoji">💡</span>
+        <span><strong>"Cortisol is the stage, catecholamines are the performers."</strong> Without the stage (cortisol), the performers (epinephrine, glucagon) cannot do their act.</span>
+      </div>
+      <ul class="bio">
+        <li>No cortisol → epi can't raise BP adequately</li>
+        <li>No cortisol → glucagon can't make glucose efficiently</li>
+        <li>Adrenal crisis = low BP that doesn't respond to fluids/vasopressors until hydrocortisone is given</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  QUICK REFERENCE
+══════════════════════════════════════ -->
+<section id="quickref">
+  <div class="section-label">Section 10</div>
+  <h2 class="section-title">Quick Reference Card</h2>
+  <p class="section-desc">Exam-ready single-glance summary of the most tested cortisol facts.</p>
+
+  <div class="qref">
+    <div class="qref-title">🎯 Cortisol — Exam Fast Facts</div>
+    <div class="qref-grid">
+      <div>
+        <div class="qref-group-title">Identity</div>
+        <div class="qref-item"><span class="qref-k">Class</span><span class="qref-v">Glucocorticoid steroid</span></div>
+        <div class="qref-item"><span class="qref-k">Source</span><span class="qref-v">Adrenal cortex, Zona Fasciculata</span></div>
+        <div class="qref-item"><span class="qref-k">Transport</span><span class="qref-v">75% CBG, 15% albumin, 5-10% free</span></div>
+        <div class="qref-item"><span class="qref-k">Peak secretion</span><span class="qref-v">6–8 AM (circadian)</span></div>
+        <div class="qref-item"><span class="qref-k">Receptor</span><span class="qref-v">Intracellular GR-α → gene transcription</span></div>
+        <div class="qref-item"><span class="qref-k">Half-life</span><span class="qref-v">~90 minutes</span></div>
+
+        <div class="qref-group-title" style="margin-top: 20px;">Metabolic</div>
+        <div class="qref-item"><span class="qref-k">Blood glucose</span><span class="qref-v">↑ (gluconeogenesis ↑, insulin resistance)</span></div>
+        <div class="qref-item"><span class="qref-k">Protein</span><span class="qref-v">↑ proteolysis → amino acids to liver</span></div>
+        <div class="qref-item"><span class="qref-k">Fat</span><span class="qref-v">↑ lipolysis peripherally; central fat deposition</span></div>
+        <div class="qref-item"><span class="qref-k">Insulin</span><span class="qref-v">Antagonizes → diabetogenic</span></div>
+
+        <div class="qref-group-title" style="margin-top: 20px;">Mineralocorticoid effects</div>
+        <div class="qref-item"><span class="qref-k">Na⁺</span><span class="qref-v">↑ Retained (ENaC)</span></div>
+        <div class="qref-item"><span class="qref-k">K⁺</span><span class="qref-v">↓ Secreted (hypokalemia)</span></div>
+        <div class="qref-item"><span class="qref-k">H⁺</span><span class="qref-v">↓ Secreted → metabolic alkalosis</span></div>
+        <div class="qref-item"><span class="qref-k">H₂O</span><span class="qref-v">↑ Retained (follows Na⁺)</span></div>
+        <div class="qref-item"><span class="qref-k">Protector</span><span class="qref-v">11β-HSD2 (inactivates cortisol in kidney)</span></div>
+      </div>
+      <div>
+        <div class="qref-group-title">WBCs</div>
+        <div class="qref-item"><span class="qref-k">Neutrophils</span><span class="qref-v" style="color: #4CAF50;">↑ (demargination)</span></div>
+        <div class="qref-item"><span class="qref-k">Lymphocytes</span><span class="qref-v" style="color: var(--danger);">↓ (↓ IL-2, apoptosis)</span></div>
+        <div class="qref-item"><span class="qref-k">Eosinophils</span><span class="qref-v" style="color: var(--danger);">↓ (sequestration + apoptosis)</span></div>
+        <div class="qref-item"><span class="qref-k">Monocytes</span><span class="qref-v" style="color: var(--danger);">↓ (redistribution)</span></div>
+        <div class="qref-item"><span class="qref-k">Basophils</span><span class="qref-v" style="color: var(--danger);">↓ (degranulation inhibited)</span></div>
+
+        <div class="qref-group-title" style="margin-top: 20px;">Immune (all ↓)</div>
+        <div class="qref-item"><span class="qref-k">Prostaglandins</span><span class="qref-v">↓ (phospholipase A₂ inhibited via lipocortin)</span></div>
+        <div class="qref-item"><span class="qref-k">Leukotrienes</span><span class="qref-v">↓ (same pathway)</span></div>
+        <div class="qref-item"><span class="qref-k">Histamine</span><span class="qref-v">↓ (blocks mast cell degranulation)</span></div>
+        <div class="qref-item"><span class="qref-k">IL-2</span><span class="qref-v">↓ → ↓ T cell proliferation</span></div>
+        <div class="qref-item"><span class="qref-k">WBC adhesion</span><span class="qref-v">↓ → no extravasation</span></div>
+        <div class="qref-item"><span class="qref-k">TB reactivation</span><span class="qref-v">via ↓ IL-2 (Th1 impaired)</span></div>
+
+        <div class="qref-group-title" style="margin-top: 20px;">Permissive / Other</div>
+        <div class="qref-item"><span class="qref-k">Catecholamines</span><span class="qref-v">Permits full vasopressor effect</span></div>
+        <div class="qref-item"><span class="qref-k">Glucagon</span><span class="qref-v">Permits full gluconeogenic effect</span></div>
+        <div class="qref-item"><span class="qref-k">Bone</span><span class="qref-v">↓ osteoblasts → osteoporosis</span></div>
+        <div class="qref-item"><span class="qref-k">Skin</span><span class="qref-v">↓ fibroblasts → poor healing, striae</span></div>
+        <div class="qref-item"><span class="qref-k">GnRH / Repro</span><span class="qref-v">↓ → amenorrhea, ↓ libido</span></div>
+        <div class="qref-item"><span class="qref-k">Free water</span><span class="qref-v">↑ clearance (opposes ADH physiologically)</span></div>
+        <div class="qref-item"><span class="qref-k">POMC co-products</span><span class="qref-v">β-endorphin, MSH, ACTH from same precursor</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px; padding: 20px; background: var(--highlight); border: 1px solid rgba(200,90,26,0.2); border-radius: 10px; font-size: 0.82rem; color: var(--muted); text-align: center;">
+    <strong style="color: var(--ink);">🎓 Master Principle:</strong> Cortisol = <em>Stress Survival</em>. Every effect makes evolutionary sense — mobilize energy, maintain BP, suppress inflammation (prevent self-destruction), sacrifice non-essential functions (bone, reproduction, immunity). Chronically, these same effects become pathological.
+  </div>
+</section>
+
+<div style="height: 60px;"></div>
+
+</div><!-- /page -->
+</body>
+</html>
